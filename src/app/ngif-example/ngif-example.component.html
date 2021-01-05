@@ -1,0 +1,60 @@
+<h2 style="padding: 20px">ngIf</h2>
+<div style="width: 90%; margin: 0 auto;">
+    <!-- First way of doing the condition-->
+
+    <!-- <div *ngIf="movies.length > 0; else noCourses">
+        <h4>List of movies:</h4>
+      </div>
+      <ng-template #noCourses>
+        <h4>No movies currently added</h4>
+      </ng-template> -->
+    <button (click)="clearList()"
+        style="width:150px; height:50px; display: flex; justify-content: center; align-items: center;">
+        <h4>Clear List</h4>
+    </button>
+    <h4>Movie List</h4>
+    <!-- Second way of rendering data under specific condition -->
+    <div *ngIf="movies.length > 0; then movieList else noMovieMessage"></div>
+    <!-- This will be rendered if we have moies length > 0 -->
+    <ng-template #movieList>
+
+        <div>
+            <ul>
+                <li *ngFor="let movie of movies">
+                    {{ movie }}
+                </li>
+            </ul>
+        </div>
+    </ng-template>
+    <!-- This will be rendered if we have moies length = 0 -->
+    <ng-template #noMovieMessage>
+        <h4>Empty List. You can add movies with the form down there</h4>
+    </ng-template>
+
+    <div style="display: flex; flex-direction: row;">
+        <input (keyup.enter)="addMovie()" style="margin-right: 10px;" placeholder="add a movie"
+            [(ngModel)]="newMovie" />
+        <button (click)="addMovie()"
+            style="margin-right: 10px; width:150px; height:50px; display: flex; justify-content: center; align-items: center;">
+            <h4>Add movie</h4>
+        </button>
+        <button (click)="toggleVisibility()"
+            style="width:150px; height:50px; display: flex; justify-content: center; align-items: center;">
+
+            <!-- Third way of doing it is by using the 'hidden' property -->
+            <div [hidden]="isShown == false">
+                <h4>Hide Summary</h4>
+            </div>
+            <div [hidden]="isShown == true">
+                <h4>Show Summary</h4>
+            </div>
+        </button>
+    </div>
+
+    <p [hidden]="isShown == false"> In conclusion we found out that there are many ways of conditionaly rendering data.
+        If we have a large component tree we would rather use <span style="font-weight: bold">*ngIf</span> instead of
+        hidden because that
+        is the better approach of doing it. While hidden the component is still being created and it is just now
+        being displayed to the user, eveything in the back runs and there is no need for that. That is why it is better
+        to use <span style="font-weight: bold">*ngIf</span>.
+    </p>

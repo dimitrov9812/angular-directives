@@ -1,0 +1,29 @@
+<h3>ngSwitch</h3>
+<div style="margin-top: 10px; border-bottom: 1px solid lightgrey; padding-bottom: 10px;">
+    <ul class="nav nav-pills">
+        <button class="btn"
+                [class.btn-primary] = " viewMode === 'home' "
+                (click)="viewMode='home'">
+            <li class="active" >Home</li>
+        </button>
+        <button class="btn"
+                [class.btn-primary] = " viewMode === 'profile' "
+                (click)="viewMode='profile'">
+            <li class="active">Profile</li>
+        </button>
+        <button class="btn"
+                [class.btn-primary] = " viewMode === 'learned' "
+                (click)="viewMode='learned'">
+            <li class="active">Learned</li>
+        </button>
+    </ul>
+    <div [ngSwitch]="viewMode" style="background-color: lightgray; width: 300px; height: 100px;">
+        <div *ngSwitchCase="'home'">Home page</div>
+        <div *ngSwitchCase="'profile'">Profile page</div>
+        <div *ngSwitchCase="'learned'">
+            <p>We use ngSwitch to conditinaly render data.
+                Here we used it to switch between tabs. Also we change the
+                style of the button based on the tab selected</p>
+        </div>
+    </div>
+</div>
