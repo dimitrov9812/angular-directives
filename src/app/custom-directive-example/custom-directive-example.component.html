@@ -1,0 +1,18 @@
+<div style="padding-top: 10px;">
+    <h3>Creating <span style="font-weight: bold;">Custom Directives</span></h3>
+    <div style="margin-top:10px; width: 90%; margin: 0 auto;">
+        <h6 style="font-style: italic;">To test it choose the format option write a text and the text will be
+            formatted when you are out of focus or when the input filed is bein blurred
+        </h6>
+        <input type="text" [appInputFormat]="selectedFormat"/>
+        <div>
+            <h6>Change format directive option</h6>
+            <button (click)="selectedFormat='lowercase'">
+                lowercase
+            </button>
+            <button (click)="selectedFormat='uppercase'">
+                UPPERCASE
+            </button>
+        </div>
+    </div>
+</div>

@@ -7,7 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { NgifExampleComponent } from './ngif-example/ngif-example.component';
 import { NgSwitchExampleComponent } from './ng-switch-example/ng-switch-example.component';
 import { NgForExampleComponent } from './ng-for-example/ng-for-example.component';
-import { CustomDerivativeExampleComponent } from './custom-derivative-example/custom-derivative-example.component';
+import { CustomDirectiveExampleComponent } from './custom-directive-example/custom-directive-example.component';
+import { InputFormatDirective } from './input-format.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CustomDerivativeExampleComponent } from './custom-derivative-example/cu
     NgifExampleComponent,
     NgSwitchExampleComponent,
     NgForExampleComponent,
-    CustomDerivativeExampleComponent
+    CustomDirectiveExampleComponent,
+    InputFormatDirective
   ],
   imports: [
     BrowserModule,
